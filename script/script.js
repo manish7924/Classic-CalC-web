@@ -18,7 +18,9 @@ arr.forEach(button => {
             input.value = string;
         }
         else if (e.target.innerHTML === '%') {
-            string = (parseFloat(string) / 100).toString();
+            if (string !== "") {
+                string += "*0.01";
+            }
             input.value = string;
         }
         else if (e.target.innerHTML === 'DEL') {
