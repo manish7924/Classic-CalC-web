@@ -81,8 +81,7 @@ button {
     height: 60px;
     margin: 10px;
     border-radius: 150%;
-    border: 2px solid white;
-    background-color: #54AEFF;
+    background-color: #1E90FF;
     box-shadow: 0 2px 4px;
     color: white;
 }
