@@ -3,12 +3,13 @@ let buttons = document.querySelectorAll('button');
 
 let string = "";
 let arr = Array.from(buttons);
+
 arr.forEach(button => {
     button.addEventListener('click', (e) => {
         if (e.target.innerHTML === '=') {
             try {
-                string = string.replace(/%/g, '*0.01');
-                string = eval(string);
+                let evalString = string.replace(/%/g, '*0.01');
+                string = eval(evalString).toString();
                 input.value = string;
             } catch {
                 input.value = "Error";
