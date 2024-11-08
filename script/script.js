@@ -7,6 +7,7 @@ arr.forEach(button => {
     button.addEventListener('click', (e) => {
         if (e.target.innerHTML === '=') {
             try {
+                string = string.replace(/%/g, '*0.01');
                 string = eval(string);
                 input.value = string;
             } catch {
@@ -18,9 +19,7 @@ arr.forEach(button => {
             input.value = string;
         }
         else if (e.target.innerHTML === '%') {
-            if (string !== "") {
-                string += "*0.01";
-            }
+            string += '%';
             input.value = string;
         }
         else if (e.target.innerHTML === 'DEL') {
