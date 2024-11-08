@@ -22,7 +22,7 @@ body {
     margin: 52px 0 35px 0;
     text-align: center;
     font-size: auto;
-    color: #1E90FF;
+    color: #54AEFF;
     font-family: 'Ubuntu' sans-serif;
     ̥
 }
@@ -81,7 +81,8 @@ button {
     height: 60px;
     margin: 10px;
     border-radius: 150%;
-    background-color: #1E90FF;
+    border: 2px solid white;
+    background-color: #54AEFF;
     box-shadow: 0 2px 4px;
     color: white;
 }
