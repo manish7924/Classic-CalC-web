@@ -18,7 +18,7 @@ body {
 #grad{
     background-image: linear-gradient(right, red, yellow);
 }
-.text {
+.title {
     margin: 52px 0 35px 0;
     text-align: center;
     font-size: auto;
@@ -81,7 +81,7 @@ button {
     height: 60px;
     margin: 10px;
     border-radius: 150%;
-    background-color: #5c5cff;
+    background-color: #007FFF;
     box-shadow: 0 2px 4px;
     color: white;
 }
