@@ -1,87 +1,144 @@
+/* Material Design Design Tokens (Variables) */
+:root {
+  --md-sys-color-background: #121318;
+  --md-sys-color-surface: #1b1b1f;
+  --md-sys-color-surface-variant: #2b2930;
+  --md-sys-color-primary: #adc6ff;
+  --md-sys-color-on-primary: #002e69;
+  --md-sys-color-secondary-container: #43474e;
+  --md-sys-color-on-secondary-container: #e2e2e9;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-outline: #8e9199;
+
+  --md-shape-corner-full: 9999px;
+  --md-shape-corner-extra-large: 28px;
+  --md-shape-corner-large: 16px;
+
+  --md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+
+  --md-elevation-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Ubuntu' sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;
-    width: 100;
-    height: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ;
+  background-color: var(--md-sys-color-background);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-#grad{
-    background-image: linear-gradient(right, red, yellow);
-}
 .title {
-    margin: 52px 0 35px 0;
-    text-align: center;
-    font-size: auto;
-    color: #54AEFF;
-    font-family: 'Ubuntu' sans-serif;
-    ̥
+  color: #e2e2e9;
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
+/* Calculator Container */
 .calculator {
-    border: 1px solid rgb(67, 66, 66);
-    padding: 20px;
-    border-radius: 20px;
-    background-color: rgb(41, 40, 40);
-    box-shadow: 0 3px 4px rgb(157, 157, 157);
+  background-color: var(--md-sys-color-surface);
+  padding: 24px;
+  border-radius: var(--md-shape-corner-extra-large);
+  box-shadow: var(--md-elevation-3);
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Display Area */
+.display-container {
+  width: 100%;
+  padding: 16px;
+  background-color: #24262b;
+  border-radius: var(--md-shape-corner-large);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 110px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 input {
-    width: 312px;
-    border: 1px solid rgb(118, 115, 115);
-    border-radius: 9px;
-    padding: 23px;
-    margin: 10px;
-    background: rgb(204, 255, 220);
-    box-shadow: 0 3px 4px rgb(157, 157, 157);
-    font-size: 40px;
-    text-align: right;
-    cursor: pointer;
-    color: black;
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 2.5rem;
+  text-align: right;
+  color: #ffffff;
+  outline: none;
+  font-weight: 400;
 }
 
-input::placeholder {
-    color: gray;
+/* Button Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
+/* Standard Button Styling */
 button {
-    border: 1px none;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-    border-radius: 150%;
-    box-shadow: 0 2px 3px;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+  border: none;
+  aspect-ratio: 1;
+  border-radius: var(--md-shape-corner-full);
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.2s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.1s;
+
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
 }
 
+button:hover {
+  filter: brightness(1.15);
+}
+
+button:active {
+  transform: scale(0.95);
+  filter: brightness(0.9);
+}
+
+/* Operator Buttons */
 .op-sym {
-    color: rgb(24, 189, 24);
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-primary);
 }
 
-#ac {
-    color: red;
-    border: 1px none;
+/* Action Buttons */
+#ac,
+.action-btn {
+  background-color: #312222;
+  color: var(--md-sys-color-error);
 }
 
+/* Equals Button */
 #eq {
-    border: 1px none;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-    border-radius: 150%;
-    background-color: #1E90FF;
-    box-shadow: 0 2px 4px;
-    color: white;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-weight: 700;
 }
