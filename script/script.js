@@ -1,35 +1,39 @@
-let input = document.getElementById('inputbox');
-let buttons = document.querySelectorAll('button');
+const input = document.getElementById("inputbox");
+const buttons = document.querySelectorAll("button");
 
-let string = "";
-let arr = Array.from(buttons);
+let currentExpression = "";
 
-arr.forEach(button => {
-    button.addEventListener('click', (e) => {
-        if (e.target.innerHTML === '=') {
-            try {
-                let evalString = string.replace(/%/g, '*0.01');
-                string = eval(evalString).toString();
-                input.value = string;
-            } catch {
-                input.value = "Error";
-            }
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const buttonText = e.target.innerText;
+
+    if (buttonText === "=") {
+      if (currentExpression.trim() === "") return;
+
+      try {
+        let evalString = currentExpression.replace(/%/g, "*0.01");
+
+        let result = eval(evalString);
+
+        if (result % 1 !== 0) {
+          result = parseFloat(result.toFixed(6));
         }
-        else if (e.target.innerHTML === 'AC') {
-            string = "";
-            input.value = string;
-        }
-        else if (e.target.innerHTML === '%') {
-            string += '%';
-            input.value = string;
-        }
-        else if (e.target.innerHTML === 'DEL') {
-            string = string.substring(0, string.length - 1);
-            input.value = string;
-        }
-        else {
-            string += e.target.innerHTML;
-            input.value = string;
-        }
-    });
+
+        currentExpression = result.toString();
+        input.value = currentExpression;
+      } catch {
+        input.value = "Error";
+        currentExpression = "";
+      }
+    } else if (buttonText === "AC") {
+      currentExpression = "";
+      input.value = "";
+    } else if (buttonText === "DEL") {
+      currentExpression = currentExpression.slice(0, -1);
+      input.value = currentExpression;
+    } else {
+      currentExpression += buttonText;
+      input.value = currentExpression;
+    }
+  });
 });
